@@ -1,0 +1,6 @@
+@WhatsFlow_HostAddress = http://localhost:5281
+
+GET {{WhatsFlow_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
