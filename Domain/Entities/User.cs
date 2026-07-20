@@ -1,33 +1,17 @@
-﻿namespace WhatsFlow.Domain.Entities
+namespace WhatsFlow.Domain.Entities;
+
+public class User
 {
-    public class User
-    {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string PasswordHash { get; private set; }
-        public bool IsActive { get; private set; }
-        public Guid RoleId { get; private set; }
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string PasswordHash { get; set; } = string.Empty;
+    public bool IsActive { get; set; } = true;
 
-        public Role Role { get; private set; }
-        public ICollection<Team> Teams { get; private set; } = new List<Team>();
+    // FK a Role
+    public int RoleId { get; set; }
+    public Role Role { get; set; } = null!;
 
-        private User() { } 
-
-        public static User Create(string name, string email, string passwordHash, Guid roleId)
-        {
-            return new User
-            {
-                Id = Guid.NewGuid(),
-                Name = name,
-                Email = email,
-                PasswordHash = passwordHash,
-                IsActive = true,
-                RoleId = roleId
-            };
-        }
-
-        public void Deactivate() => IsActive = false;
-        public void ChangeRole(Guid roleId) => RoleId = roleId;
-    }
+    // Relación N:N con Team
+    public ICollection<Team> Teams { get; set; } = new List<Team>();
 }

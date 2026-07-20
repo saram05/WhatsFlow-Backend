@@ -1,14 +1,10 @@
-﻿namespace WhatsFlow.Domain.Entities
+namespace WhatsFlow.Domain.Entities;
+
+public class Role
 {
-    public class Role
-    {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; } // Admin / Supervisor / Agente
+    public int Id { get; set; }
+    public string Name { get; set; } = string.Empty;
 
-        public ICollection<User> Users { get; private set; } = new List<User>();
-
-        private Role() { }
-
-        public static Role Create(string name) => new Role { Id = Guid.NewGuid(), Name = name };
-    }
+    // Navigation
+    public ICollection<User> Users { get; set; } = new List<User>();
 }

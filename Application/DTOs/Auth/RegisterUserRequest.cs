@@ -1,10 +1,9 @@
-﻿namespace WhatsFlow.Application.DTOs.Auth
+namespace WhatsFlow.Application.DTOs.Auth;
+
+public class RegisterUserRequest
 {
-    public class RegisterUserRequest
-    {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public Guid RoleId { get; set; }
-    }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+    public int RoleId { get; set; }
 }

@@ -1,9 +1,8 @@
-﻿using WhatsFlow.Domain.Entities;
+using WhatsFlow.Domain.Entities;
 
-namespace WhatsFlow.Application.Interfaces
+namespace WhatsFlow.Application.Interfaces;
+
+public interface ITokenService
 {
-    public interface ITokenService
-    {
-        string GenerateToken(User user);
-    }
+    string GenerateToken(User user);
 }

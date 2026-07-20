@@ -1,11 +1,10 @@
-﻿using WhatsFlow.Domain.Entities;
+using WhatsFlow.Domain.Entities;
 
-namespace WhatsFlow.Application.Interfaces
+namespace WhatsFlow.Application.Interfaces;
+
+public interface IRoleRepository
 {
-    public interface IRoleRepository
-    {
-        Task<Role?> GetByIdAsync(Guid id);
-        Task<Role?> GetByNameAsync(string name);
-        Task<IEnumerable<Role>> GetAllAsync();
-    }
+    Task<Role?> GetByIdAsync(int id);
+    Task<Role?> GetByNameAsync(string name);
+    Task<List<Role>> GetAllAsync();
 }
